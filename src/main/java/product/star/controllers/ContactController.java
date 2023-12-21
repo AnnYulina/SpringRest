@@ -19,7 +19,7 @@ public class ContactController {
     }
 
     @GetMapping("/{contactId}")
-    public ContactDto getContact(@PathVariable long contactId){
+    public ContactDto getContact(@PathVariable Long contactId){
         return  contactFacade.getContact(contactId);
     }
 
@@ -29,7 +29,7 @@ public class ContactController {
     }
 
     @PutMapping("/{contactId}")
-    public ContactDto putContact(@RequestBody ContactDto contactDto,@PathVariable long contactId){
+    public ContactDto putContact(@PathVariable Long contactId, @RequestBody ContactDto contactDto){
         return  contactFacade.changeContact(contactId,contactDto);
     }
 }

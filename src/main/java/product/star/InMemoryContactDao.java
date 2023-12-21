@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class InMemoryContactDao implements ContactDAO{
-    private long contactId = 1L;
-    private final Map<Long,Contact> contactsMap;
+public class InMemoryContactDao implements ContactDAO {
+    private Long contactId = 1L;
+    private final Map<Long, Contact> contactsMap;
 
     public InMemoryContactDao() {
         this.contactsMap = new HashMap<>();
@@ -18,13 +18,13 @@ public class InMemoryContactDao implements ContactDAO{
 
     @Override
     public Contact addContact(String name, String lastName, String phoneNumber, String email) {
-        Contact contact = new Contact(contactId,name,lastName,phoneNumber,email);
-        contactsMap.put(contactId++,contact);
+        Contact contact = new Contact(contactId, name, lastName, phoneNumber, email);
+        contactsMap.put(contactId++, contact);
         return contact;
     }
 
     @Override
-    public Optional<Contact> findContact(long contactId) {
+    public Optional<Contact> findContact(Long contactId) {
         return Optional.ofNullable(contactsMap.get(contactId));
     }
 

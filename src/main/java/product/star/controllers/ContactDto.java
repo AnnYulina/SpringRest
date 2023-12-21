@@ -6,7 +6,7 @@ import product.star.Contact;
 
 public class ContactDto {
     @JsonProperty("contactId")
-    private long contactId;
+    private Long contactId;
     @JsonProperty("name")
     private String name;
     @JsonProperty("lastName")
@@ -19,7 +19,7 @@ public class ContactDto {
   public ContactDto() {
     }
 
-    public ContactDto(long contactId, String name, String lastName, String phoneNumber, String email) {
+    public ContactDto(Long contactId, String name, String lastName, String phoneNumber, String email) {
         this.contactId = contactId;
         this.name = name;
         this.lastName = lastName;
@@ -35,7 +35,7 @@ public class ContactDto {
         this.email = contact.getEmail();
     }
 
-    public long getContactId() {
+    public Long getContactId() {
         return contactId;
     }
 

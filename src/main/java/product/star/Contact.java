@@ -1,7 +1,7 @@
 package product.star;
 
 public class Contact {
-    private long contactId;
+    private Long contactId;
     private String name;
     private String lastName;
     private String phoneNumber;
@@ -47,11 +47,22 @@ public class Contact {
         this.email = email;
     }
 
-    public long getContactId() {
+    public Long getContactId() {
         return contactId;
     }
 
-    public void setContactId(long contactId) {
+    public void setContactId(Long contactId) {
         this.contactId = contactId;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "contactId=" + contactId +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

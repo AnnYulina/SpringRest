@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ContactDAO {
-    @JsonProperty()
     Contact addContact(String name, String lastName, String phoneNumber, String email);
-    Optional<Contact> findContact(long contactId);
+    Optional<Contact> findContact(Long contactId);
     List<Contact> getContacts();
 }

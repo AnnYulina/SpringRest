@@ -2,12 +2,10 @@ package product.star.facade;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import product.star.Contact;
 import product.star.ContactDAO;
 import product.star.controllers.ContactDto;
 import product.star.controllers.ContactsDto;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,24 +17,24 @@ public class ContactFacade {
         this.contactDAO = contactDAO;
     }
 
-    public ContactDto createContact(ContactDto contact){
+    public ContactDto createContact(ContactDto contact) {
         var newContact = contactDAO.addContact(contact.getName(), contact.getLastName(),
                 contact.getPhoneNumber(), contact.getEmail());
         return new ContactDto(newContact);
     }
 
-    public ContactDto getContact(long contactId){
+    public ContactDto getContact(Long contactId) {
         var foundContact = contactDAO.findContact(contactId)
                 .orElseThrow(() -> new IllegalArgumentException("Contact not found by Id: " + contactId));
         return new ContactDto(foundContact);
     }
 
-    public ContactsDto getContacts(){
+    public ContactsDto getContacts() {
         var contacts = contactDAO.getContacts().stream().map(ContactDto::new).collect(Collectors.toList());
         return new ContactsDto(contacts);
     }
 
-    public ContactDto changeContact(long contactId, ContactDto newContact){
+    public ContactDto changeContact(Long contactId, ContactDto newContact) {
         var foundContact = contactDAO.findContact(contactId)
                 .orElseThrow(() -> new IllegalArgumentException("Contact not found by Id: " + contactId));
         foundContact.setName(newContact.getName());
